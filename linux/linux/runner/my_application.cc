@@ -49,6 +49,21 @@ static void window_method_call_cb(FlMethodChannel* channel,
   }
 }
 
+static bool is_hyprland_session() {
+  const gchar* desktop = g_getenv("XDG_CURRENT_DESKTOP");
+  if (desktop == nullptr) {
+    return false;
+  }
+
+  g_auto(GStrv) desktops = g_strsplit(desktop, ":", -1);
+  for (gchar** name = desktops; *name != nullptr; ++name) {
+    if (g_ascii_strcasecmp(*name, "Hyprland") == 0) {
+      return true;
+    }
+  }
+  return false;
+}
+
 // Implements GApplication::activate.
 static void my_application_activate(GApplication* application) {
   MyApplication* self = MY_APPLICATION(application);
@@ -61,8 +76,6 @@ static void my_application_activate(GApplication* application) {
   // desktop).
   // If running on X and not using GNOME then just use a traditional title bar
   // in case the window manager does more exotic layout, e.g. tiling.
-  // If running on Wayland assume the header bar will work (may need changing
-  // if future cases occur).
   gboolean use_header_bar = TRUE;
 #ifdef GDK_WINDOWING_X11
   GdkScreen* screen = gtk_window_get_screen(window);
@@ -73,7 +86,10 @@ static void my_application_activate(GApplication* application) {
     }
   }
 #endif
-  if (use_header_bar) {
+  if (use_header_bar && is_hyprland_session()) {
+    // Let Hyprland draw the borders configured for this window.
+    gtk_window_set_decorated(window, FALSE);
+  } else if (use_header_bar) {
     GtkHeaderBar* header_bar = GTK_HEADER_BAR(gtk_header_bar_new());
     gtk_widget_show(GTK_WIDGET(header_bar));
     gtk_header_bar_set_title(header_bar, g_get_application_name());

@@ -7,6 +7,7 @@ Requires Pillow and rsvg-convert. Run this script, then run
 
 from io import BytesIO
 from pathlib import Path
+from shutil import copyfile
 import subprocess
 import xml.etree.ElementTree as ET
 
@@ -14,6 +15,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / 'assets'
+SVG_ICON = ASSETS / 'mica.svg'
 ANDROID_ASSETS = ROOT / 'android/assets'
 LINUX_ICONS = ROOT / 'linux/linux/icons'
 WINDOWS_ICON = ROOT / 'windows/windows/runner/resources/app_icon.ico'
@@ -24,7 +26,7 @@ ICON_SIZES = (16, 24, 32, 48, 64, 128, 256)
 def adaptive_foreground() -> Image.Image:
     """Render the SVG crystal layers without the rounded background."""
     ET.register_namespace('', SVG_NAMESPACE)
-    svg = ET.parse(ASSETS / 'mica.svg').getroot()
+    svg = ET.parse(SVG_ICON).getroot()
     svg.remove(svg.find(f'{{{SVG_NAMESPACE}}}rect'))
     rendered = subprocess.run(
         ['rsvg-convert'], input=ET.tostring(svg), capture_output=True, check=True,
@@ -47,6 +49,7 @@ def main() -> None:
         master.save(WINDOWS_ICON, sizes=[(size, size) for size in ICON_SIZES])
 
         LINUX_ICONS.mkdir(exist_ok=True)
+        copyfile(SVG_ICON, LINUX_ICONS / SVG_ICON.name)
         for size in ICON_SIZES:
             icon = master.resize((size, size), Image.Resampling.LANCZOS)
             icon.save(LINUX_ICONS / f'{size}.png')
