@@ -56,7 +56,7 @@ class Autostart {
     await entry.writeAsString('''
 [Desktop Entry]
 Type=Application
-Name=Synchronizer
+Name=Mica
 Comment=Keep folders in step across your devices
 Exec=${Platform.resolvedExecutable}
 Terminal=false

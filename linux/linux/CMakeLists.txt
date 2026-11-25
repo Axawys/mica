@@ -94,6 +94,18 @@ set(INSTALL_BUNDLE_LIB_DIR "${CMAKE_INSTALL_PREFIX}/lib")
 install(TARGETS ${BINARY_NAME} RUNTIME DESTINATION "${CMAKE_INSTALL_PREFIX}"
   COMPONENT Runtime)
 
+configure_file("mica.desktop.in" "${APPLICATION_ID}.desktop" @ONLY)
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APPLICATION_ID}.desktop"
+  DESTINATION "share/applications" COMPONENT Runtime)
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../../assets/mica.svg"
+  DESTINATION "share/icons/hicolor/scalable/apps"
+  RENAME "${APPLICATION_ID}.svg" COMPONENT Runtime)
+foreach(icon_size 16 24 32 48 64 128 256)
+  install(FILES "icons/${icon_size}.png"
+    DESTINATION "share/icons/hicolor/${icon_size}x${icon_size}/apps"
+    RENAME "${APPLICATION_ID}.png" COMPONENT Runtime)
+endforeach()
+
 install(FILES "${FLUTTER_ICU_DATA_FILE}" DESTINATION "${INSTALL_BUNDLE_DATA_DIR}"
   COMPONENT Runtime)
 

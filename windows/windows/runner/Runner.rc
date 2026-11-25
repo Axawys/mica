@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "Axawys" "\0"
-            VALUE "FileDescription", "Synchronizer" "\0"
+            VALUE "FileDescription", "Mica" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "synchronizer_windows" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2026 Axawys. GNU General Public License, version 2." "\0"
             VALUE "OriginalFilename", "synchronizer_windows.exe" "\0"
-            VALUE "ProductName", "Synchronizer" "\0"
+            VALUE "ProductName", "Mica" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

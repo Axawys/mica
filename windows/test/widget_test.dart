@@ -63,7 +63,7 @@ void main() {
     int selected() =>
         tester.widget<NavigationRail>(find.byType(NavigationRail)).selectedIndex!;
 
-    expect(find.text('Synchronizer'), findsOneWidget); // the rail's header
+    expect(find.text('Mica'), findsOneWidget); // the rail's header
     expect(selected(), 0);
 
     // Folders used to be the middle destination; it lives on the device that

@@ -1,5 +1,5 @@
 name: synchronizer_windows
-description: "A new Flutter project."
+description: Mica syncs folders across your devices over a local network.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -49,6 +49,12 @@ dependencies:
 
   # Persists this device's identity (id and name) between runs.
   shared_preferences: ^2.3.0
+  # Keeps the preferences directory independent of Windows executable branding.
+  path: ^1.9.0
+  path_provider_windows: ^2.3.0
+  shared_preferences_platform_interface: ^2.4.1
+  shared_preferences_windows: ^2.4.1
+  win32: ^5.5.0
 
 dev_dependencies:
   flutter_test:

@@ -3,9 +3,11 @@ import 'package:sync_ui/sync_ui.dart';
 
 import 'device_identity.dart';
 import 'window_frame.dart';
+import 'windows_preferences.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  configureWindowsPreferences();
   final self = await DeviceIdentity.load();
   // Windows draws the title bar, so it has to be told about the theme.
   runApp(SynchronizerApp(
