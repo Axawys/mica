@@ -25,10 +25,11 @@ void main() {
         reason: 'these read as English in a Russian UI');
   });
 
-  test('the app name is deliberately left alone', () async {
-    // The exception to the rule above: it is a name, not a word.
+  test('the app name is Mica in both languages', () async {
+    final en = await load(const Locale('en'));
     final ru = await load(const Locale('ru'));
-    expect(ru.appTitle, 'Synchronizer');
+    expect(en.appTitle, 'Mica');
+    expect(ru.appTitle, 'Mica');
   });
 
   test('Russian counts things the way Russian does', () async {
@@ -99,6 +100,7 @@ void main() {
 /// because the generated class has no way to enumerate itself; a new string
 /// belongs here.
 final Map<String, String Function(AppLocalizations)> _plainStrings = {
+  'appTagline': (l) => l.appTagline,
   'navSync': (l) => l.navSync,
   'navSettings': (l) => l.navSettings,
   'thisDeviceCard': (l) => l.thisDeviceCard,

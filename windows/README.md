@@ -1,6 +1,11 @@
-# synchronizer_windows
+# Mica для Windows
 
-A new Flutter project.
+После [подготовки общей локализации](../README.md#сборка) соберите приложение
+командой `flutter build windows --release` на Windows.
+Переносите весь каталог `build\windows\x64\runner\Release`.
+При обновлении сохраняйте путь к `synchronizer_windows.exe`, чтобы продолжали
+работать ярлыки, автозапуск и правила брандмауэра. Настройки остаются в
+`%APPDATA%\Axawys\Synchronizer\shared_preferences.json`.
 
 ## Getting Started
 

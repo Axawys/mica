@@ -1,6 +1,9 @@
-# synchronizer_mobile
+# Mica для Android
 
-A new Flutter project.
+После [подготовки общей локализации](../README.md#сборка) соберите приложение
+командой `flutter build apk --release` из этого каталога.
+При обновлении с Synchronizer установите APK поверх прежнего приложения с той
+же подписью и более высоким `versionCode`.
 
 ## Getting Started
 

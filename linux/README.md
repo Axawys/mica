@@ -1,6 +1,23 @@
-# synchronizer_desktop
+# Mica для Linux
 
-A new Flutter project.
+После [подготовки общей локализации](../README.md#сборка) соберите приложение
+командой `flutter build linux --release` из этого каталога.
+Запускайте `synchronizer_desktop` из каталога `build/linux/<архитектура>/release/bundle`.
+При переносе сохраняйте весь каталог сборки.
+
+Для запуска из меню приложений сделайте `synchronizer_desktop` доступным в
+`PATH` сеанса рабочего стола, например через ссылку на исполняемый файл из
+`~/.local/bin`, если этот каталог уже в `PATH`. Из каталога готовой сборки
+скопируйте ярлык и иконки в каталог данных пользователя.
+
+```sh
+mica_data="${XDG_DATA_HOME:-$HOME/.local/share}"
+mkdir -p "$mica_data"
+cp -R share/applications share/icons "$mica_data/"
+```
+
+При обновлении на том же пути ссылка продолжит работать. Повторите копирование,
+чтобы обновить ярлык и иконки в меню.
 
 ## Getting Started
 

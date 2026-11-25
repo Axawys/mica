@@ -1,5 +1,5 @@
 name: synchronizer_mobile
-description: "A new Flutter project."
+description: Mica syncs folders across your devices over a local network.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+1
+version: 1.0.0+2
 
 environment:
   sdk: ^3.12.0
@@ -106,19 +106,15 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
 
-# Launcher icons, generated from the images tool/prepare_icons.py prepares out
-# of assets/icon.png. Regenerate with: dart run flutter_launcher_icons
+# Launcher icons, generated from the images prepared by tool/prepare_icons.py.
+# Regenerate with: dart run flutter_launcher_icons
 flutter_launcher_icons:
   android: true
   ios: false
-  # Edge-to-edge black artwork on nothing: a white layer behind it is what keeps
-  # it visible on a dark launcher, and the foreground is already inset to the
-  # adaptive safe zone so no corners get masked away.
   image_path: "assets/icon_legacy.png"
-  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_background: "#24203C"
   adaptive_icon_foreground: "assets/icon_foreground.png"
-  # The foreground already carries the margin it needs; the default 16% would
-  # inset it a second time and shrink the artwork to nothing.
+  adaptive_icon_monochrome: "assets/icon_foreground.png"
+  # The prepared foreground already fits the adaptive icon safe zone.
   adaptive_icon_foreground_inset: 0
-  # Older Androids get a round variant rather than the square being cropped.
   android_min_sdk_version: 21

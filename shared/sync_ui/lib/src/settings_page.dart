@@ -216,6 +216,7 @@ class _SettingsPageState extends State<SettingsPage> {
             title: Text(l10n.appTitle),
             subtitle: Text(
               [
+                l10n.appTagline,
                 if (_version.isNotEmpty) l10n.versionLabel(_version),
                 '© $kCopyrightYear $kDeveloper',
               ].join('\n'),

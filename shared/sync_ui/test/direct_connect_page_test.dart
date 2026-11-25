@@ -155,7 +155,7 @@ void main() {
     await tester.pump();
 
     expect(scanner.scans, 1);
-    expect(find.text('That is not a Synchronizer code.'), findsOneWidget);
+    expect(find.text('That is not a Mica code.'), findsOneWidget);
   });
 
   testWidgets('a scanned code joins the network it names', (tester) async {

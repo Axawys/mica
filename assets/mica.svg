@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 100 100">
+  <title>Mica</title>
+  <rect width="100" height="100" rx="22" fill="#24203C"/>
+  <path d="M21 53 L43 19 L66 53 L43 84 Z" fill="#A28BF5"/>
+  <path d="M43 53 L65 19 L86 53 L65 84 Z" fill="#7563D5" fill-opacity=".85"/>
+  <path d="M43 53 L54 36 L66 53 L54 69 Z" fill="#DED4FF"/>
+</svg>
